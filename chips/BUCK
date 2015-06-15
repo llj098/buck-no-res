@@ -1,0 +1,19 @@
+android_resource(
+  name = 'res',
+  res = 'src/main/res',
+  package = 'com.anroid.ex.chips',
+  visibility = ['PUBLIC'],
+)
+
+prebuilt_jar(
+  name = 'support',
+  binary_jar = "support-v4-19.1.0.jar",
+)
+
+android_library(
+  name = 'src',
+  srcs = glob(['src/main/**/*.java']),
+  manifest = "AndroidManifest.xml",
+  deps = [':support', ':res',],
+  visibility = ['PUBLIC'],
+)
